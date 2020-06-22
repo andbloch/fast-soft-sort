@@ -184,7 +184,8 @@ class Isotonic(_Differentiable):
 def _inv_permutation(permutation):
   """Returns inverse permutation of 'permutation'."""
   inv_permutation = torch.zeros_like(permutation)
-  inv_permutation[permutation] = torch.arange(permutation.shape[0])
+  inv_permutation[permutation] = torch.arange(permutation.shape[0],
+                                              device=permutation.device)
   return inv_permutation
 
 
